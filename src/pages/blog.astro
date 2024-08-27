@@ -1,0 +1,22 @@
+---
+import Layout from "../components/layout.astro"
+const posts = await Astro.glob('../pages/posts/*.md');
+
+---
+
+<Layout title="Blog">
+    <ul>
+        {posts.slice(0, 4).map((post) => (
+            <li class="flex p-2 py-4 first:pt-0 last:pb-0 odd:bg-white even:bg-slate-50 dark:odd:bg-slate-950 dark:even:bg-gray-600">
+                <article>
+              <h2 class="font-semibold ">{post.frontmatter.title}</h2>
+              <p class="">{post.frontmatter.description}</p>
+              <a class="underline underline-offset-4 font-bold" href={post.url}>Read more</a>
+              
+            </article>
+            </li>
+            
+          ))}
+    </ul>
+    
+</Layout>
