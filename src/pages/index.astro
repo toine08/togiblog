@@ -1,8 +1,70 @@
 ---
-import Layout from "../components/layout.astro"
-import Highlight from "../components/highlight.tsx"
+import Layout from "../components/layout.astro";
+import Highlight from "../components/highlight.jsx";
 ---
 
-<Layout title="Home">
-<p>Hi, I'm Togi, a web developer and designer. I'm passionate about creating beautiful and functional <Highlight color="blue">websites</Highlight>. I'm currently working on a new project, so stay tuned!</p>
+<Layout title="Togi - Web Developer & Designer">
+  <div class="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Hi, I'm Togi</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">Web developer & CS Enthusiast</p>
+    </header>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">About Me</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+          I'm passionate about creating beautiful and functional <Highlight color="blue">websites</Highlight>. 
+          With a keen eye for design and a love for clean code, I bring ideas to life in the digital realm.
+        </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+          Currently, I'm working on an exciting new project. <Highlight color="green">Stay tuned</Highlight> for updates!
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">What I'm Learning</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+          I believe in continuous learning and expanding my skillset. Currently, I'm:
+        </p>
+        <ul class="list-disc list-inside text-lg text-gray-700 dark:text-gray-300 mb-4 space-y-2">
+          <li>Developing <Highlight color="purple">mobile applications</Highlight></li>
+          <li>Exploring the fascinating world of <Highlight color="red">machine learning</Highlight></li>
+          <li>Staying updated with the latest web technologies</li>
+        </ul>
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+          My curiosity drives me to constantly learn and grow in this ever-evolving field of technology.
+        </p>
+      </section>
+    </div>
+
+    <footer class="mt-12 text-center">
+      <a href="#contact" class="inline-block bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+        Get in Touch
+      </a>
+    </footer>
+  </div>
 </Layout>
+
+<script>
+  // Check for saved theme preference or use system preference
+  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  // Apply the theme
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  // Save the theme preference when it changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (e.matches) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>

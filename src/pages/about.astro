@@ -1,8 +1,49 @@
 ---
 import Layout from "../components/layout.astro"
 ---
-<Layout title ="togiwho ?">
-	<h1>togime</h1>
-	<p></p>
-</Layout>
 
+<Layout title="togiwho ?">
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">About Me</h1>
+    
+    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      <div class="md:flex">
+        <div class="md:flex-shrink-0">
+          <img class="h-48 w-full object-cover md:w-48" src="/path/to/your/image.jpg" alt="Togi">
+        </div>
+        <div class="p-8">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Web Developer & CS Enthusiast</div>
+          <h2 class="block mt-1 text-lg leading-tight font-medium text-gray-900 dark:text-white">togime</h2>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Hello! I'm Togi, a passionate web developer with a keen interest in computer science. I love creating 
+            beautiful, functional websites and exploring new technologies. When I'm not coding, you can find me 
+            [insert your hobbies or interests here].
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Skills</h3>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+          <li>HTML, CSS, JavaScript</li>
+          <li>React, Vue.js</li>
+          <li>Node.js, Express</li>
+          <li>Python</li>
+          <li>Git, GitHub</li>
+        </ul>
+      </div>
+      <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Interests</h3>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+          <li>Artificial Intelligence</li>
+          <li>Machine Learning</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Open Source Contribution</li>
+          <li>UI/UX Design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>
