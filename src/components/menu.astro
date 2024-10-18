@@ -9,17 +9,17 @@ const menuItems = [
 ---
 
 <nav class="w-full flex justify-center m-1">
-  <ul class="w-full max-w-md flex justify-between bg-bluefluo dark:bg-greenfluo rounded-md p-2 space-x-2">
+  <ul class="w-full max-w-md flex justify-between bg-bluefluo dark:bg-indigo-600 rounded-md p-2 space-x-2">
     {menuItems.map(({ href, label }) => (
       <li class="flex-1">
         <a
           href={href}
           class={`block text-center text-lg font-sans font-bold py-2 px-4 rounded-md transition duration-200 ease-in-out
-            ${currentPath === href ? 'bg-blue-700 text-white dark:bg-green-500 dark:text-white' : 'text-white hover:bg-blue-900 dark:hover:bg-green-600'}
+            ${currentPath === href ? 'bg-blue-700 text-white dark:bg-indigo-700 dark:text-white' : 'text-white hover:bg-blue-900 dark:hover:bg-indigo-400'}
           `}
           aria-current={currentPath === href ? 'page' : undefined}
         >
-          {label}
+          {label} 
         </a>
       </li>
     ))}
