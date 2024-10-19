@@ -1,5 +1,8 @@
 pipeline {
     agent any
+      environment {
+      COREPACK_HOME = "$WORKSPACE"
+    }
     stages {
         stage('Install Dependencies') {
             steps {
