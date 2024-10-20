@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build Astro Site') {
             steps {
-                sh 'pnpm astro build'
+                sh 'npxpnpm astro build'
             }
         }
         stage('Build Docker Image') {
