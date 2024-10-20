@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'npx pnpm install -y'
+                sh 'npx pnpm install'
             }
         }
         stage('Build Astro Site') {
