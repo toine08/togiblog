@@ -1,6 +1,8 @@
 ---
+layout: ../../components/postLayout.astro
+
 title: "Let's play with Jenkins"
-pubDate: 2024-10-18
+date: 2024-10-18
 description: 'Trying Jenkins'
 author: 'togido'
 image:
@@ -9,8 +11,6 @@ image:
 tags: ["jenkins", "pipeline", "learning in public", "ci/cd"]
 ---
 # My First Blog Post
-
-Published on: {pubDate}
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
@@ -24,4 +24,5 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 
 ## What's next
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+I will finish the Astro tutorial, and then keep adding more posts.
+Watch this space for more to come!
