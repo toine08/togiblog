@@ -1,15 +1,17 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
+
 const currentPath = Astro.url.pathname;
 
 const menuItems = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Articles" },
-  { href: "/about/", label: "Togiwho ?" },
+  { href: "/about/", label: "Togiwho?" },
 ];
 ---
 
 <nav class="w-full flex justify-center m-1">
-  <ul class="w-full max-w-md flex justify-between bg-bluefluo dark:bg-indigo-600 rounded-md p-2 space-x-2">
+  <ul class="w-full max-w-md flex justify-between align-middle bg-indigo-50 dark:bg-indigo-600 rounded-md p-2 space-x-2">
     {menuItems.map(({ href, label }) => (
       <li class="flex-1">
         <a
@@ -23,9 +25,6 @@ const menuItems = [
         </a>
       </li>
     ))}
+    <ThemeToggle/>
   </ul>
 </nav>
-
-<style>
-  /* Add any additional styles here if needed */
-</style>
