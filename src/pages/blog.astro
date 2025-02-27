@@ -39,6 +39,7 @@ const allTags = getTags()
       {posts.map((post) => (
         <li class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transition-transform duration-200 hover:scale-105 post-item" data-tags={post.frontmatter.tags.join(',')}>
           <article class="p-6">
+            <a class="appearance-none" href={post.url}>
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {post.frontmatter.title}
             </h2>
@@ -48,6 +49,7 @@ const allTags = getTags()
             <p class="text-gray-600 dark:text-gray-300 mb-4">
               Published: {new Date(post.frontmatter.date).toLocaleDateString("en-GB")}
             </p>
+              </a>
             <div class="flex flex-row justify-between align-middle">
               <div class="flex justify-between items-center">
                 <a 
