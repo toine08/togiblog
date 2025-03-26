@@ -1,0 +1,16 @@
+---
+const { platform, username } = Astro.props;
+
+// Prepare the URL based on the platform
+let href;
+let displayName = platform;
+if (platform === "bsky") {
+  href = `https://www.${platform}.app/profile/${username}`
+  displayName = "bluesky"
+} else {
+  href = `https://www.${platform}.com/${username}`;
+}
+---
+
+<a href={href} class="text-blue-500 hover:underline mx-2">{displayName}</a>
+

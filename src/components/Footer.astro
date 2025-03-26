@@ -1,8 +1,8 @@
 ---
-const platform = "github";
-const username = "toine08";
+import Social from './Social.astro';
 ---
 
-<footer class="flex justify-center items-center py-4  dark: text-white">
-    <p>Learn more about my projects on <a href={`https://www.${platform}.com/${username}`} class="text-blue-400 hover:underline">{platform}</a>!</p>
+<footer class="mt-auto py-4 flex justify-center items-center dark:text-white">
+  <Social platform="github" username="toine08" />
+    <Social platform="bsky" username="togido.xyz" />
   </footer>
