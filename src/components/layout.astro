@@ -2,6 +2,7 @@
 import ThemeToggle from './ThemeToggle.astro';
 import Menu from './menu.astro';
 const { title } = Astro.props;
+import Footer from './Footer.astro';
 
 
 ---
@@ -37,5 +38,7 @@ const { title } = Astro.props;
     <main class="container mx-auto px-4 bg-white text-black dark:text-white dark:bg-slate-950">
         <slot /> <!-- your content is injected here -->
     </main>
+    
+    <Footer  />
   </body>
 </html>
