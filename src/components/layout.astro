@@ -29,16 +29,16 @@ import Footer from './Footer.astro';
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title}</title>
+    <title>togido - {title}</title>
     <!-- Add this line to include Tailwind -->
     <link rel="stylesheet" href="../styles/global.css">
   </head>
-  <body class="bg-white text-black dark:text-white dark:bg-slate-950">
+  <body class="flex flex-col min-h-screen bg-gradient-to-bl from-blue-400 to-slate-100 dark:from-blue-800 dark:to-slate-900 text-black dark:text-white">
     <Menu />
-    <main class="container mx-auto px-4 bg-white text-black dark:text-white dark:bg-slate-950">
-        <slot /> <!-- your content is injected here -->
+    <main class="container mx-auto px-4 flex-grow my-8 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-lg backdrop-blur-sm">
+      <slot /> <!-- your content is injected here -->
     </main>
     
-    <Footer  />
+    <Footer />
   </body>
 </html>

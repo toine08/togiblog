@@ -6,7 +6,7 @@ import Highlight from "../components/highlight.jsx";
 <Layout title="togi - Devops Engineer & CS Enthusiast">
   <div class="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
     <header class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Hi, I'm togi</h1>
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Hi, I'm toto</h1>
       <p class="text-xl text-gray-600 dark:text-gray-300">Devops Engineer & CS Enthusiast</p>
     </header>
 
@@ -44,25 +44,3 @@ import Highlight from "../components/highlight.jsx";
   </div>
 </Layout>
 
-<script>
-  // Check for saved theme preference or use system preference
-  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  
-  // Apply the theme
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-
-  // Save the theme preference when it changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (e.matches) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>

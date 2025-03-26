@@ -2,60 +2,74 @@
 import Layout from "../components/layout.astro"
 ---
 
-<Layout title="togiwho ?">
+<Layout title="about me">
   <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">About Me</h1>
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-8">About Me</h1>
     
-    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-      <!--<div class="md:flex-shrink-0">
-          <img class="h-48 w-full object-cover md:w-48" src="/path/to/your/image.jpg" alt="Togi">
-        </div> --><div class="md:flex">
-        
-        <div class="p-8">
-          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Devops Engineer & CS Enthusiast</div>
-          <h2 class="block mt-1 text-lg leading-tight font-medium text-gray-900 dark:text-white">togido</h2>
-          <p class="mt-2 text-gray-600 dark:text-gray-300">
-            Hello! I'm togi, a passionate IT Enthusiast currently working as a Devops Engineer with a keen interest in computer science. I love creating 
-            beautiful, functional websites and exploring new technologies. When I'm not coding, you can find me 
-            [insert your hobbies or interests here] ← I used ai bc I never know what to write. But my interest are running (I love running in the mountains), playing video games or building something when I have a website/app idea.
-          </p>
+    <div class="backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 shadow-xl rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl">
+      <div class="p-8">
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium tracking-wider">
+            Devops Engineer
+          </div>
+          <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium tracking-wider">
+            CS Enthusiast
+          </div>
         </div>
+        
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">toto</h2>
+        <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+          Hello! I'm toto, a passionate IT Enthusiast currently working as a Devops Engineer with a keen interest in computer science. I love creating 
+          beautiful, functional websites and exploring new technologies. When I'm not coding, you can find me 
+          [insert your hobbies or interests here] ← I used ai bc I never know what to write. But my interest are running (I love running in the mountains), playing video games or building something when I have a website/app idea.
+        </p>
       </div>
     </div>
 
     <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-      <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Skills (or tbh I know how to use it and/or spent 1h or more on it, but I enjoyed it)</h3>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 columns-2">
-          <li>SCCM</li>
-          <li>Azure Devops</li>
-          <li>Jira</li>
-          <li>Jenkins</li>
-          <li>Terraform</li>
-          <li>Linux</li>
-          <li>Docker</li>
-          <li>HTML</li>
-          <li>JavaScript</li>
-          <li>CSS</li>
-          <li>React</li>
-          <li>React Native</li>
-          <li>Expo</li>
-          <li>Node.js</li>
-          <li>Python</li>
-          <li>Jupyter Notebook</li>
-          <li>Git, GitHub</li>
-        </ul>
+      <div class="backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 shadow-lg rounded-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <h3 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-6">Skills</h3>
+        <div class="grid grid-cols-2 gap-3 text-gray-600 dark:text-gray-300">
+          {[
+            "SCCM", "Azure Devops", "Jira", "Jenkins", "Terraform", "Linux",
+            "Docker", "HTML", "JavaScript", "CSS", "React", "React Native",
+            "Expo", "Node.js", "Python", "Jupyter Notebook", "Git, GitHub"
+          ].map(skill => (
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span class="text-sm font-medium">{skill}</span>
+            </div>
+          ))}
+        </div>
       </div>
-      <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Interests (this list can move a lot)</h3>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-          <li>Mobile Development</li>
-          <li>Web Development</li>
-          <li>Devops Engineering</li>
-          <li>Artificial Intelligence</li>
-          <li>Machine Learning</li>
-        </ul>
+      
+      <div class="backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 shadow-lg rounded-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <h3 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-6">Interests</h3>
+        <div class="space-y-3">
+          {[
+            "Mobile Development",
+            "Web Development",
+            "Devops Engineering",
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Running",
+            "Video games"
+          ].map(interest => (
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <span class="text-sm font-medium text-gray-600 dark:text-gray-300">{interest}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
 </Layout>
+
+<style>
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
