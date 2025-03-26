@@ -4,7 +4,7 @@ layout: ../../components/postLayout.astro
 title: "learning Golang"
 date: 2025-02-25
 description: 'My journey learning go'
-author: 'togido'
+author: 'toto'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
