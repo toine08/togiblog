@@ -14,12 +14,16 @@ const allTags = getTags()
 ---
 
 <Layout title="Articles">
-  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Latest Articles</h1>
-    <ul class="space-y-8">
-      <ul class="flex flex-wrap">
+  <div class="container max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-8">
+      Latest Articles
+    </h1>
+    
+    {/* Tags container */}
+    <div class="mb-8">
+      <ul class="flex flex-wrap gap-2">
         <li 
-          class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 mr-2 mb-2 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
+          class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
           data-tag="all"
         >
           <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
@@ -27,7 +31,7 @@ const allTags = getTags()
         </li>
         {allTags.map((tag: string) => (
           <li 
-            class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 mr-2 mb-2 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
+            class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
             data-tag={tag}
           >
             <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
@@ -35,33 +39,34 @@ const allTags = getTags()
           </li>
         ))}
       </ul>
+    </div>
 
+    {/* Posts list */}
+    <div class="space-y-6">
       {posts.map((post) => (
-        <li class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transition-transform duration-200 hover:scale-105 post-item" data-tags={post.frontmatter.tags.join(',')}>
+        <div class="bg-white/80 dark:bg-gray-800/80 shadow-md rounded-lg overflow-hidden transition-transform duration-200 hover:scale-105 post-item backdrop-blur-sm" data-tags={post.frontmatter.tags.join(',')}>
           <article class="p-6">
-            <a class="appearance-none" href={post.url}>
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-              {post.frontmatter.title}
-            </h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              {post.frontmatter.description}
-            </p>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Published: {new Date(post.frontmatter.date).toLocaleDateString("en-GB")}
-            </p>
+            <a class="block space-y-4" href={post.url}>
+              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                {post.frontmatter.title}
+              </h2>
+              <p class="text-gray-600 dark:text-gray-300">
+                {post.frontmatter.description}
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                Published: {new Date(post.frontmatter.date).toLocaleDateString("en-GB")}
+              </p>
+            </a>
+            <div class="flex items-center justify-between mt-6">
+              <a 
+                href={post.url} 
+                class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+              >
+                Read more →
               </a>
-            <div class="flex flex-row justify-between align-middle">
-              <div class="flex justify-between items-center">
-                <a 
-                  href={post.url} 
-                  class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-                >
-                  Read more →
-                </a>
-              </div>
-              <ul class="flex flex-wrap">
+              <ul class="flex flex-wrap gap-2">
                 {(post.frontmatter.tags || []).map((tag: string) => (
-                  <li class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 mr-2 mb-2 transition-all hover:bg-blue-100 dark:hover:bg-blue-900">
+                  <li class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1">
                     <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
                     {tag}
                   </li>
@@ -69,9 +74,9 @@ const allTags = getTags()
               </ul>
             </div>
           </article>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>
 </Layout>
 
