@@ -11,13 +11,15 @@ const menuItems = [
 ---
 
 <nav class="w-full flex justify-center m-1">
-  <ul class="w-full max-w-md flex justify-between align-middle bg-indigo-50 dark:bg-indigo-600 rounded-md p-2 space-x-2">
+  <ul class="w-full max-w-md flex justify-between align-middle bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg p-2 space-x-2 shadow-md border border-gray-100 dark:border-slate-700">
     {menuItems.map(({ href, label }) => (
       <li class="flex-1">
         <a
           href={href}
-          class={`block text-center text-lg font-sans font-bold py-2 px-4 rounded-md transition duration-200 ease-in-out
-            ${currentPath === href ? 'bg-blue-700 dark:bg-indigo-700 dark:text-white text-blue-50' : 'text-blue-800 dark:text-white hover:text-blue-50 hover:bg-blue-700 dark:hover:bg-indigo-400'}
+          class={`block text-center text-lg font-sans font-medium py-2 px-4 rounded-md transition duration-200 ease-in-out
+            ${currentPath === href 
+              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md' 
+              : 'text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-slate-700'}
           `}
           aria-current={currentPath === href ? 'page' : undefined}
         >
