@@ -1,12 +1,11 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 import Menu from './menu.astro';
-const { title } = Astro.props;
 import Footer from './Footer.astro';
-
-
+const { title } = Astro.props;
 ---
-<html lang="en">
+
+<html lang="en" class="overscroll-none">
   <head>
     <script defer data-domain="togido.xyz" src="https://plausible.io/js/script.js"></script>
     <script is:inline>
@@ -33,12 +32,13 @@ import Footer from './Footer.astro';
     <!-- Add this line to include Tailwind -->
     <link rel="stylesheet" href="../styles/global.css">
   </head>
-  <body class="flex flex-col min-h-screen bg-gradient-to-bl from-blue-400 to-slate-100 dark:from-blue-800 dark:to-slate-900 text-black dark:text-white">
+  <body class="bg-gradient-to-bl from-blue-400 to-slate-100 dark:from-blue-800 dark:to-slate-900 text-black dark:text-white">
     <Menu />
-    <main class="container mx-auto px-4 flex-grow my-8 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-lg backdrop-blur-sm">
-      <slot /> <!-- your content is injected here -->
-    </main>
-    
+    <div class="flex flex-col items-center justify-center min-h-screen">
+      <main class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-lg dark:prose-invert">
+        <slot />
+      </main>
+    </div>
     <Footer />
   </body>
 </html>
