@@ -1,6 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
-import Menu from './menu.astro';
+import Header from './Header.astro';
 import Footer from './Footer.astro';
 const { title } = Astro.props;
 ---
@@ -32,8 +32,9 @@ const { title } = Astro.props;
     <!-- Add this line to include Tailwind -->
     <link rel="stylesheet" href="../styles/global.css">
   </head>
+  
   <body class="bg-gradient-to-bl from-blue-400 to-slate-100 dark:from-blue-800 dark:to-slate-900 text-black dark:text-white">
-    <Menu />
+    <Header/>
     <div class="flex flex-col items-center justify-center min-h-screen">
       <main class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-lg dark:prose-invert">
         <slot />
