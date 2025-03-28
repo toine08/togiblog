@@ -9,6 +9,7 @@ image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["golang", "learning in public", "backend"]
+resume: "My first article"
 ---
 # My First Blog Post
 
