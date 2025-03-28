@@ -1,6 +1,7 @@
 ---
 import Layout from "../components/layout.astro"
 const posts = await Astro.glob('../pages/posts/*.md');
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 
 const getTags =()=>{
   let post: any
@@ -14,16 +15,16 @@ const allTags = getTags()
 ---
 
 <Layout title="Articles">
-  <div class="container max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-8">
+  <div class={`container max-w-4xl mx-auto ${allPosts.length < 8 ? "-mt-80" : ""}`}>
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
       Latest Articles
     </h1>
     
     {/* Tags container */}
-    <div class="mb-8">
+    <div class="">
       <ul class="flex flex-wrap gap-2">
         <li 
-          class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
+          class="-ml-7 flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
           data-tag="all"
         >
           <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
@@ -40,42 +41,19 @@ const allTags = getTags()
         ))}
       </ul>
     </div>
-
-    {/* Posts list */}
-    <div class="space-y-6">
-      {posts.map((post) => (
-        <div class="bg-white/80 dark:bg-gray-800/80 shadow-md rounded-lg overflow-hidden transition-transform duration-200 hover:scale-105 post-item backdrop-blur-sm" data-tags={post.frontmatter.tags.join(',')}>
-          <article class="p-6">
-            <a class="block space-y-4" href={post.url}>
-              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
-                {post.frontmatter.title}
-              </h2>
-              <p class="text-gray-600 dark:text-gray-300">
-                {post.frontmatter.description}
-              </p>
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                Published: {new Date(post.frontmatter.date).toLocaleDateString("en-GB")}
-              </p>
-            </a>
-            <div class="flex items-center justify-between mt-6">
-              <a 
-                href={post.url} 
-                class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-              >
-                Read more →
-              </a>
-              <ul class="flex flex-wrap gap-2">
-                {(post.frontmatter.tags || []).map((tag: string) => (
-                  <li class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1">
-                    <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        </div>
+    <ul class="space-y-4 mt-6 -ml-8">
+      {allPosts.map((post: any) => (
+        <li class="flex flex-col bg-gray-100 dark:bg-blue-700/20 text-gray-600 dark:text-gray-300 rounded-md px-4 py-3 transition-all hover:bg-blue-100 dark:hover:bg-blue-900">
+          <a class="text-lg font-medium no-underline" href={post.url}>
+            {post.frontmatter.title}
+          </a>
+          <span class="text-sm mt-1 text-gray-500 dark:text-gray-400">
+            {post.frontmatter.resume}
+          </span>
+        </li>
       ))}
+    </ul>
+   
     </div>
   </div>
 </Layout>
