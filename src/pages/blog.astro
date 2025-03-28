@@ -1,56 +1,18 @@
 ---
+import BlogPost from "../components/BlogPost.astro";
 import Layout from "../components/layout.astro"
-const posts = await Astro.glob('../pages/posts/*.md');
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 
-const getTags =()=>{
-  let post: any
-  let arrTags: any[] = []
-  for(post in posts){
-    arrTags =arrTags.concat(posts[post].frontmatter.tags)
-  }
-  return [...new Set(arrTags)]; // Remove duplicates
-}
-const allTags = getTags()
 ---
 
 <Layout title="Articles">
   <div class={`container max-w-4xl mx-auto ${allPosts.length < 8 ? "-mt-80" : ""}`}>
-    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+    <h1 class="text-4xl dark:text-white text-black font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
       Latest Articles
     </h1>
-    
-    {/* Tags container */}
-    <div class="">
-      <ul class="flex flex-wrap gap-2">
-        <li 
-          class="-ml-7 flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
-          data-tag="all"
-        >
-          <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
-          All
-        </li>
-        {allTags.map((tag: string) => (
-          <li 
-            class="flex items-center text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-3 py-1 transition-all hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer"
-            data-tag={tag}
-          >
-            <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
-            {tag}
-          </li>
-        ))}
-      </ul>
-    </div>
     <ul class="space-y-4 mt-6 -ml-8">
       {allPosts.map((post: any) => (
-        <li class="flex flex-col bg-gray-100 dark:bg-blue-700/20 text-gray-600 dark:text-gray-300 rounded-md px-4 py-3 transition-all hover:bg-blue-100 dark:hover:bg-blue-900">
-          <a class="text-lg font-medium no-underline" href={post.url}>
-            {post.frontmatter.title}
-          </a>
-          <span class="text-sm mt-1 text-gray-500 dark:text-gray-400">
-            {post.frontmatter.resume}
-          </span>
-        </li>
+        <BlogPost title={post.frontmatter.title} url={post.frontmatter.url} resume={post.frontmatter.resume}/>
       ))}
     </ul>
    
