@@ -1,5 +1,5 @@
 ---
-layout: ../../components/postLayout.astro
+layout: ../../layouts/PostLayout.astro
 
 title: "learning Golang"
 date: 2025-02-25
