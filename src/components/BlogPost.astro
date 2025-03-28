@@ -1,0 +1,11 @@
+---
+const {title,url,resume} = Astro.props
+---
+      <li class="flex flex-col bg-gray-100 dark:bg-blue-700/20 text-gray-600 dark:text-gray-300 rounded-md px-4 py-3 transition-all hover:bg-blue-100 dark:hover:bg-blue-900">
+        <a class="text-lg font-medium no-underline" href={url}>
+          {title}
+        </a>
+        <span class="text-sm mt-1 text-gray-500 dark:text-gray-400">
+          {resume}
+        </span>
+      </li>
