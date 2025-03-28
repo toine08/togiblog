@@ -1,10 +1,11 @@
 ---
 import Menu from './menu.astro';
+import Footer from './Footer.astro';
 const { title } = Astro.props;
 const { frontmatter } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="overscroll-none">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -22,4 +23,5 @@ const { frontmatter } = Astro.props;
     </div>
   </div>
 </body>
+<Footer/>
 </html>
