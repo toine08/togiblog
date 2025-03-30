@@ -1,8 +1,7 @@
 ---
-const allPosts = Object.values(import.meta.glob('../../posts/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
 const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
 
-// Count posts for each tag
 const tagCounts = tags.reduce((acc, tag) => {
   acc[tag] = allPosts.filter((post: any) => post.frontmatter.tags?.includes(tag)).length;
   return acc;
@@ -12,18 +11,18 @@ const tagCounts = tags.reduce((acc, tag) => {
 {tags.map((tag) => (
     <a 
     href={`/tags/${tag}`}
-      class="flex flex-col justify-between p-4 rounded-lg transition-all duration-200 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-slate-700 dark:to-slate-800 hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/30 border border-gray-200 dark:border-gray-600 hover:shadow-md no-underline"
+      class="flex flex-col justify-between p-4 rounded-lg transition-all duration-200 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-blue-700 dark:to-blue-800 hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/30 hover:shadow-md no-underline"
     >
       <div>
         <div class="flex items-center mb-2">
           <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">{tag}</h3>
         </div>
         <p class="text-sm text-gray-500 dark:text-gray-400">
-          {tagCounts[tag]} {tagCounts[tag] === 1 ? 'post' : 'posts'}
+          {tagCounts[tag]}&nbsp;{tagCounts[tag] === 1 ? 'post' : 'posts'}
         </p>
       </div>
       <div class="mt-4 text-right">
-        <span class="text-blue-600 dark:text-blue-400 text-sm font-medium">
+        <span class="text-gray-600 dark:text-gray-200 text-sm font-medium">
           Browse →
         </span>
       </div>
