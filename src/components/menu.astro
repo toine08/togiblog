@@ -11,8 +11,9 @@ const menuItems = [
 ];
 ---
 
-<nav class="w-full flex justify-center m-1">
-  <ul class="w-full max-w-md flex justify-between align-middle bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg p-2 space-x-2 shadow-md border border-gray-100 dark:border-slate-700">
+<nav class="w-full flex justify-center m-1 relative">
+  <!-- Desktop Menu -->
+  <ul class="hidden md:flex w-full max-w-md justify-between align-middle bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg p-2 space-x-2 shadow-md border border-gray-100 dark:border-slate-700">
     {menuItems.map(({ href, label }) => (
       <li class="flex-1">
         <a
@@ -28,6 +29,60 @@ const menuItems = [
         </a>
       </li>
     ))}
+    <li class="flex items-center">
+      <ThemeToggle/>
+    </li>
+  </ul>
+  
+  <!-- Mobile Menu Toggle Button -->
+  <div class="md:hidden w-full max-w-md flex justify-between items-center bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg p-2 shadow-md border border-gray-100 dark:border-slate-700">
+    <button id="mobile-menu-toggle" class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-slate-700" aria-label="Toggle menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <div class="text-lg font-medium text-gray-700 dark:text-gray-200">
+      {menuItems.find(item => item.href === currentPath)?.label || 'Menu'}
+    </div>
     <ThemeToggle/>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <ul id="mobile-menu" class="hidden absolute top-full left-0 right-0 mt-1 w-full max-w-md mx-auto bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100 dark:border-slate-700 z-50 overflow-hidden">
+    {menuItems.map(({ href, label }) => (
+      <li>
+        <a
+          href={href}
+          class={`block text-left text-lg font-sans font-medium py-3 px-4 transition duration-200 ease-in-out
+            ${currentPath === href 
+              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white' 
+              : 'text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-slate-700'}
+          `}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label} 
+        </a>
+      </li>
+    ))}
   </ul>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>
