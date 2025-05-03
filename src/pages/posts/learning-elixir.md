@@ -2,7 +2,7 @@
 layout: ../../layouts/PostLayout.astro
 
 title: "Learning elixir"
-date: 2025-03-30
+date: 2025-05-03
 description: 'My journey following an elixir crash course.'
 author: 'toine'
 tags: ["elixir", "learning"]
